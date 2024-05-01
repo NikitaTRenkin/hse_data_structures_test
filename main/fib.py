@@ -2,5 +2,12 @@
 
 
 # Получить число Фибоначчи по его номеру
-def fib(n):
-    return 0
+def fib(n: int):
+    if not isinstance(n, int) or n < 0 or n in (0, float("inf"), float("-inf")):
+        return None
+    if n <= 2:
+        return n - 1
+    a, b = 0, 1
+    for _ in range(n - 2):
+        a, b = b, a + b
+    return b
